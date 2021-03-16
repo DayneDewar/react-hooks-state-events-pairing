@@ -1,4 +1,18 @@
+import React, {useState} from "react"
+
 function VideoInfo(props) {
+  const [likes, setLikes] = useState(9210);
+  const [dislikes, setDislikes] = useState(185)
+  function handleLikes() {
+    setLikes(likes + 1);
+    console.log('click')
+  }
+
+  function handleDislikes() {
+    setDislikes(dislikes + 1)
+  }
+  
+
     return (
       <div>
       <iframe
@@ -10,8 +24,9 @@ function VideoInfo(props) {
         title="Thinking in React"/>
         <h2>{props.title}</h2>
         <p>{props.views} Views | Uploaded {props.uploaded}</p>
-        <button>{props.likes}👍🏽</button>
-        <button>{props.dislikes}👎🏾</button>
+        <button onClick={handleLikes}>{likes}👍🏽</button>
+        <button onClick={handleDislikes}>{dislikes}👎🏾</button>
+        
         </div>
         )}
 
